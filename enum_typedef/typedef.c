@@ -18,7 +18,7 @@ int main(void) {
 	STUDENT std;
 
 	std.hakno = 10000;
-	std.name[0] = "이종석";
+	std.name = "이종석";
 	
 	return 0;
 }
