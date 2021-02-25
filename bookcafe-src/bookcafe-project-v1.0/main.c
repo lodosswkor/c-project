@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h> // strcmp(); strncmp() ..... 등등 
+#include <stdlib.h> // malloc, calloc, realloc()
 
 //-- 우리는 책이름과 작가를 받을 것이다 (배열로) 
 //-- 책장의 크기는 총 100권이 들어갈 수 있다.
@@ -67,7 +68,6 @@ int main(void) {
 		}
 	}
 
-
 	return 0;
 }
 
@@ -113,14 +113,33 @@ void list() {
 }
 
 void find() {
-	printf("find 함수 호출!\n");
+	//book_name[] = 10개가 있다 .
+	//10번을 돌면서 같은이름이 있는지 확인하고, 있으면
+	//그 index를 사용하여 책을 출력한다
+	// > find 책이름 [엔터]
+	char buf1[100]; 
+	scanf("%s", buf1); // buf1은 검색어
+
+	for (int i = 0; i < book_idx; i++) {
+	    // 문자열 비교는? strcmp 
+		if (strcmp(buf1, book_name[i]) == 0) {
+			printf("%-10s %-10s\n", book_name[i], book_author[i]);
+			//break;
+			return; // 함수 자체를 종료한다 
+		}
+	}
+	// 같은 이름을 가진 책이 없을때 실행
+	printf("책 목록 중, '%s'라는 책은 없습니다.\n", buf1);
 }
+
 void save() {
 	printf("save 함수 호출!\n");
 }
+
 void read() {
 	printf("read 함수 호출!\n");
 }
+
 void help() {
 	printf("help 함수 호출!\n");
 }
