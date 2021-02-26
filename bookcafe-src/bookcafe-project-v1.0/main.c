@@ -114,7 +114,9 @@ void del() {
 	
 	//-- 사용자로 부터 받은 값, '검색어'와 book_names[x]에 있는 '책이름'이 일치하는지 확인 
 	//-- 그 index를 삭제 
-
+	
+	/* 
+	맨 마지막 책 index와 삭제된 책 index를 교체하는 방법 
 	for (int i = 0; i < book_idx; i++) {
 		//-- 문자열 비교가 필요함. strcmp() 
 		//-- 배열의 인덱스는 0부터 시작한다.
@@ -124,19 +126,41 @@ void del() {
 		//-- 0,1,2,3,4,5,6,7,8,9 ( 10 - 1 )
 		//-- 배열의 크기가 150이라고 하면 배열의 마지막 인덱스는 150 - 1 = 149 (배열크기 - 1)
 		if (strcmp(book_name[i], search_txt) == 0) { // book_name[i], search_text가 같으면 동작 
-			book_name[i] = book_name[book_idx - 1]; 
-			book_author[i] = book_author[book_idx - 1];
+			book_name[i] = book_name[book_idx - 1];    //-- 갈아치기 
+			book_author[i] = book_author[book_idx - 1]; //-- 갈아치기 
 			printf("'%s'가 삭제되었습니다.\n", search_txt);
-			
 			book_idx--; // book_idx = book_idx - 1; 
 			//book_idx++; // book_idx = book_idx + 1; 
 			return;
 		}
-	} // search_txt != book_name[i] 같지않은경우는 i == book_idx
+	}
+	*/
+
+	//0,1,'2',3,4,5 // 2번이 삭제된 경우  
+    //0,1,(3-1),(4-1),(5-1) -> 전체 책장의 책 수는 (기존책수 - 1)
+	int temp_idx;
+	for (temp_idx = 0; temp_idx < book_idx; temp_idx++) {
+		if (strcmp(book_name[temp_idx], search_txt) == 0) {
+			printf("'%s'는 삭제되었습니다.\n", search_txt);
+			break;
+		}
+	}
+
+	//temp_idx = 2
+	if (temp_idx != book_idx) { // 검색어(search_txt)와 같은 책이름 있을경우 
+		for (int i = temp_idx; i < book_idx; i++) {
+			book_name[temp_idx] = book_name[i + 1];
+			book_author[temp_idx] = book_author[i + 1];
+		}
+		book_idx--; 
+	}
+
+	
+	// search_txt != book_name[i] 같지않은경우는 i == book_idx
 	// 책이름이 'ABC', 'BBB', 'CCC', 'DDD' 라고 총 4개가 있을 경우 
 	// search_txt = BBB 라고 조회를 하면 
 
-	printf("책 이름이 '%s'인 책은 존재하지 않습니다.\n", search_txt);
+	//printf("책 이름이 '%s'인 책은 존재하지 않습니다.\n", search_txt);
 }
 
 void list() {
