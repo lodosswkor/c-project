@@ -149,8 +149,8 @@ void del() {
 	//temp_idx = 2
 	if (temp_idx != book_idx) { // 검색어(search_txt)와 같은 책이름 있을경우 
 		for (int i = temp_idx; i < book_idx; i++) {
-			book_name[temp_idx] = book_name[i + 1];
-			book_author[temp_idx] = book_author[i + 1];
+			book_name[i] = book_name[i + 1];
+			book_author[i] = book_author[i + 1];
 		}
 		book_idx--; 
 	}
