@@ -102,8 +102,41 @@ void add() {
 	book_idx++;
 }
 
+//-- 배열로 입력된 값들을 검색해서, 해당 배열 index를 가지고 
+//-- 그 index에 있는 값을 삭제(NULL) 
+
 void del() {
-	printf("del함수 호출!\n");
+
+	//-- 책이름을 검색하고, 그 책이름이 있는 배열 index를 추출
+	
+	char search_txt[100];
+	scanf("%s", search_txt);
+	
+	//-- 사용자로 부터 받은 값, '검색어'와 book_names[x]에 있는 '책이름'이 일치하는지 확인 
+	//-- 그 index를 삭제 
+
+	for (int i = 0; i < book_idx; i++) {
+		//-- 문자열 비교가 필요함. strcmp() 
+		//-- 배열의 인덱스는 0부터 시작한다.
+		//-- 퀴즈 배열이 "크기"(총 방의숫자)가 150개 
+		//-- 그럼 배열의 마지막 인덱스는 몇일까요? 
+		//-- 배열의 크기가 10인 배열 
+		//-- 0,1,2,3,4,5,6,7,8,9 ( 10 - 1 )
+		//-- 배열의 크기가 150이라고 하면 배열의 마지막 인덱스는 150 - 1 = 149 (배열크기 - 1)
+		if (strcmp(book_name[i], search_txt) == 0) { // book_name[i], search_text가 같으면 동작 
+			book_name[i] = book_name[book_idx - 1]; 
+			book_author[i] = book_author[book_idx - 1];
+			printf("'%s'가 삭제되었습니다.\n", search_txt);
+			
+			book_idx--; // book_idx = book_idx - 1; 
+			//book_idx++; // book_idx = book_idx + 1; 
+			return;
+		}
+	} // search_txt != book_name[i] 같지않은경우는 i == book_idx
+	// 책이름이 'ABC', 'BBB', 'CCC', 'DDD' 라고 총 4개가 있을 경우 
+	// search_txt = BBB 라고 조회를 하면 
+
+	printf("책 이름이 '%s'인 책은 존재하지 않습니다.\n", search_txt);
 }
 
 void list() {
