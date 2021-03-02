@@ -21,5 +21,8 @@
     <ClCompile Include="fgets.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="fprintf_fscanf.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

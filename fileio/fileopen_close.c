@@ -14,7 +14,7 @@
 // fopen("파일의 위치-파일Path", "읽을 방식") 
 // fclose(파일 포인터);  
 
-int main01(void) {
+int main02(void) {
 
 	FILE* stream; 
 	stream = fopen("data.txt","a"); // 파일을 오픈 

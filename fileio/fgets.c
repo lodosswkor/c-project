@@ -5,7 +5,7 @@
 // file get string(), file put string()
 // 라인단위로 읽는다. 
 
-int main(void) {
+int main01(void) {
 
 	FILE* p = fopen("data.txt", "r");
 
@@ -49,3 +49,6 @@ int main(void) {
 	return 0;
 }
 
+
+
+ 
