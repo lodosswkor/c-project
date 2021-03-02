@@ -24,5 +24,13 @@
     <ClCompile Include="fprintf_fscanf.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="fscanf.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="test.xml">
+      <Filter>소스 파일</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

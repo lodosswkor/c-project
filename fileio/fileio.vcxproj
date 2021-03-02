@@ -142,6 +142,10 @@
     <ClCompile Include="fgets.c" />
     <ClCompile Include="fileopen_close.c" />
     <ClCompile Include="fprintf_fscanf.c" />
+    <ClCompile Include="fscanf.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="test.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
