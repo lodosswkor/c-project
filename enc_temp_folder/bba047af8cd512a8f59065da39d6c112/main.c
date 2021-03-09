@@ -244,17 +244,6 @@ void read() {
 		book_idx++;
 	}
 
-	/*
-	char* a = "이종석,AAA,BBB,"; 
-	char* s1 = NULL; 
-	char* s2 = NULL; 
-	char* s3 = NULL; 
-
-	s1 = ex_strdup(strtok(a, " ")); // 이종석
-	s2 = ex_strdup(strtok(NULL, " ")); // AAA
-	s3 = ex_strdup(strtok(NULL, " ")); // BBB
-	*/
-
 
 	fclose(fp);
 	//printf("read 함수 호출!\n");
